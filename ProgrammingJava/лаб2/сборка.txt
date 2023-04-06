@@ -1,0 +1,15 @@
+javac --class-path ./lib/Pokemon.jar --source-path ./src/Lab2 -d bin src/Lab2/Main.java
+java --class-path ./bin:./lib/Pokemon.jar Main
+jar -cmf manifest.mf Lab2.jar -C bin .
+
+##jar -cmf manifest.mf Lab2.jar -C bin . -C lib qwert .
+##в qwert лежит распакованный Pokemon.jar
+
+java -jar Lab2.jar
+
+manifest-version: 1.0
+class-path: . lib/Pokemon.jar
+main-class: Main
+!!! НОВАЯ СТРОЧКА !!!
+
+

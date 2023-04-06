@@ -1,0 +1,46 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AquaTail
+class Blizzard
+class Buizel
+class Castform
+class CosmicPower
+class Facade
+class Floatzel
+class FocusBlast
+class IceBeam
+class Main
+class Move
+class Pokemon
+class Porygon
+class Porygon2
+class PorygonZ
+class PowderSnow
+class Thunder
+
+AquaTail     -[#000082,plain]-^  Move        
+Blizzard     -[#000082,plain]-^  Move        
+Buizel       -[#595959,dashed]->  AquaTail    : "«create»"
+Buizel       -[#595959,dashed]->  Facade      : "«create»"
+Buizel       -[#000082,plain]-^  Pokemon     
+Castform     -[#595959,dashed]->  Blizzard    : "«create»"
+Castform     -[#595959,dashed]->  CosmicPower : "«create»"
+Castform     -[#000082,plain]-^  Pokemon     
+Castform     -[#595959,dashed]->  PowderSnow  : "«create»"
+Castform     -[#595959,dashed]->  Thunder     : "«create»"
+CosmicPower  -[#000082,plain]-^  Move        
+Facade       -[#000082,plain]-^  Move        
+Floatzel     -[#595959,dashed]->  FocusBlast  : "«create»"
+FocusBlast   -[#000082,plain]-^  Move        
+IceBeam      -[#000082,plain]-^  Move        
+Pokemon     "1" *-[#595959,plain]-> "moves\n*" Move        
+Porygon      -[#595959,dashed]->  Blizzard    : "«create»"
+Porygon      -[#595959,dashed]->  IceBeam     : "«create»"
+Porygon      -[#000082,plain]-^  Pokemon     
+PowderSnow   -[#000082,plain]-^  Move        
+Thunder      -[#000082,plain]-^  Move        
+@enduml

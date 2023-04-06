@@ -1,0 +1,65 @@
+{
+  "1": {
+    "id": 1,
+    "name": "4",
+    "coordinates": {
+      "x": 4,
+      "y": 55
+    },
+    "creationDate": "2023-04-04T17:34:56.685360500+03:00[Europe/Moscow]",
+    "price": 44.0,
+    "partNumber": "44",
+    "manufactureCost": 0,
+    "unitOfMeasure": "CENTIMETERS",
+    "manufacturer": {
+      "id": 550,
+      "name": "4",
+      "fullName": null,
+      "annualTurnover": 44,
+      "employeesCount": 1,
+      "type": "COMMERCIAL"
+    }
+  },
+  "2": {
+    "id": 2,
+    "name": "df",
+    "coordinates": {
+      "x": 0,
+      "y": 4
+    },
+    "creationDate": "2023-04-05T16:53:33.659108100+03:00[Europe/Moscow]",
+    "price": 4.0,
+    "partNumber": "4",
+    "manufactureCost": 4,
+    "unitOfMeasure": "GRAMS",
+    "manufacturer": {
+      "id": 562,
+      "name": "4",
+      "fullName": "4",
+      "annualTurnover": 4,
+      "employeesCount": 4,
+      "type": "COMMERCIAL"
+    }
+  },
+  "7": {
+    "id": 7,
+    "name": "4",
+    "coordinates": {
+      "x": 0,
+      "y": 4
+    },
+    "creationDate": "2023-04-05T20:21:07.661155600+03:00[Europe/Moscow]",
+    "price": 4.4,
+    "partNumber": "6",
+    "manufactureCost": 0,
+    "unitOfMeasure": "CENTIMETERS",
+    "manufacturer": {
+      "id": 133,
+      "name": "4",
+      "fullName": "",
+      "annualTurnover": 4,
+      "employeesCount": 4,
+      "type": "COMMERCIAL"
+    }
+  }
+}
