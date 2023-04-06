@@ -1,0 +1,41 @@
+timetable:
+  day: Tuesday
+  group: P3132
+  lessons:
+    lesson_1:
+      address: Zoom
+      lesson: Информатика
+      lesson-format: Дистанционный
+      room: Zoom
+      time: 8:20-9:50
+    lesson_2:
+      address: Ул.Ломоносова, д.9, лит.М
+      lesson: Информатика
+      lesson-format: Очно - Дистанционный
+      room: Актовый зал
+      time: 8:20-9:50
+    lesson_3:
+      address: Zoom
+      lesson: Основы профессиональной деятельности
+      lesson-format: Дистанционный
+      room: Zoom
+      time: 10:00-11:30
+    lesson_4:
+      address: Ул.Ломоносова, д.9, лит.М
+      lesson: Основы профессиональной деятельности
+      lesson-format: Очно - Дистанционный
+      room: Актовый зал
+      time: 10:00-11:30
+    lesson_5:
+      address: Zoom
+      lesson: Программирование
+      lesson-format: Дистанционный
+      room: Zoom
+      time: 11:40-13:10
+    lesson_6:
+      address: Ул.Ломоносова, д.9, лит.М
+      lesson: Программирование
+      lesson-format: Очно - Дистанционный
+      room: 1223 ауд.
+      time: 11:40-13:10
+  week: odd
