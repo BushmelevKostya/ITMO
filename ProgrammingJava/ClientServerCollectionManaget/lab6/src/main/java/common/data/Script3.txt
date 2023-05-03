@@ -1,0 +1,1 @@
+execute src/main/java/Data/Script1.txt

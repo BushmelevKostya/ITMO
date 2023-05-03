@@ -1,0 +1,44 @@
+{
+  "1": {
+    "id": 1,
+    "name": "y",
+    "coordinates": {
+      "x": 5,
+      "y": 5
+    },
+    "creationDate": "2023-05-02T22:24:25.523362+03:00[Europe/Moscow]",
+    "price": 5.0,
+    "partNumber": "10",
+    "manufactureCost": 5,
+    "unitOfMeasure": "CENTIMETERS",
+    "manufacturer": {
+      "id": 851,
+      "name": "5",
+      "fullName": "",
+      "annualTurnover": 55,
+      "employeesCount": 5,
+      "type": "COMMERCIAL"
+    }
+  },
+  "2": {
+    "id": 2,
+    "name": "5",
+    "coordinates": {
+      "x": 5,
+      "y": 5
+    },
+    "creationDate": "2023-04-29T10:12:59.361565300+03:00[Europe/Moscow]",
+    "price": 5.0,
+    "partNumber": "5",
+    "manufactureCost": 5,
+    "unitOfMeasure": "CENTIMETERS",
+    "manufacturer": {
+      "id": 449,
+      "name": "5",
+      "fullName": "5",
+      "annualTurnover": 5,
+      "employeesCount": 5,
+      "type": "COMMERCIAL"
+    }
+  }
+}
