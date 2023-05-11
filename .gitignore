@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.txt
 *.pdf
 *.csv
@@ -12,3 +13,6 @@ META_INF
 doc
 artifacts
 .idea
+=======
+
+>>>>>>> c7f10924d9949f962cdeda4d70e791d89818370f
