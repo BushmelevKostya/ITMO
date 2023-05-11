@@ -1,0 +1,6 @@
+SELECT COUNT(NAMES)
+FROM (
+SELECT ИМЯ
+FROM Н_ЛЮДИ
+GROUP BY ИМЯ
+)AS NAMES;
