@@ -1,2 +1,0 @@
-info
-execute src/main/java/Data/Script3.txt
