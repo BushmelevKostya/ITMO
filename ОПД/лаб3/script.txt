@@ -1,0 +1,29 @@
+java -jar C:/Users/kosti/OneDrive/Документы/ИТМО/ОПД/лаб5/bcomp-ng-ex-Custom.jar
+java -jar -Dmode=cli bcomp-ng.jar
+?
+485 a 0498 w
+486 a 0200 w
+487 a E000 w
+488 a E000 w
+489 a 0200 w
+48A a EEFD w
+48B a AF04 w
+48C a EEFA w
+48D a AEF7 w
+48E a EEF7 w
+48F a AAF6 w
+490 a 0480 w
+491 a F403 w
+492 a 0400 w
+493 a 4EF4 w
+494 a EEF3 w
+495 a 8487 w
+496 a CEF8 w
+497 a 0100 w
+498 a 2DCB w
+499 a 6BCE w
+49A a A5BB w
+49B a 09FC w
+
+485 a 0498 w 486 a 0200 w 487 a E000 w 488 a E000 w 489 a 0200 w 48A a EEFD w 48B a AF04 w 48C a EEFA w 48D a AEF7 w 48E a EEF7 w 48F a AAF6 w 490 a 0480 w 491 a F403 w 492 a 0400 w 493 a 4EF4 w 494 a EEF3 w 495 a 8487 w 496 a CEF8 w 497 a 0100 w 498 a 2DCB w 499 a 6BCE w 49A a A5BB w 49B a 09FC w 489 a s
+c c c c c c c c c c c c c c c c c c c c c c c c c c c c c

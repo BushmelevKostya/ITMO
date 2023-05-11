@@ -1,0 +1,122 @@
+mkdir lab0
+cd lab0
+mkdir delcatty3
+cd delcatty3
+mkdir swadloon
+touch chansey
+mkdir pansear
+mkdir totodile
+touch surskit
+cd ..
+touch hydreigon6
+touch litwick7
+mkdir misdreavus9
+cd misdreavus9
+mkdir sewaddle
+mkdir samurott
+touch golduck
+touch spinarak
+mkdir tentacruel
+cd ..
+mkdir nidoranF5
+cd nidoranF5
+mkdir roggenrola
+mkdir gurdurr
+touch torterra
+mkdir starly
+touch quaqsire
+touch larvitar
+cd ..
+touch nosepass0
+cd delcatty3
+echo -e "Развитые способности Friend Guard\nHealer" > chansey
+echo -e "Способности Bubble Quick Attack Sweet Scent Water\nSport Bubblebeam Agility Haze Mist Baton Pass" > surskit
+cd ..
+echo -e "Развитые\nспособности Hyper Cutter" > hydreigon6
+echo -e "Ходы Dark Pulse Heat Wave Pain\nSplit Sleep Talk Snore SpiteTrick" > litwick7
+echo -e "Ходы  Aqua Jet Aqua Tail\nBody Slam Brine Counter Dive Double-Edge Dynamicpunch Focus Punch Fury\nCutter Ice Punch Icy wind Iron Tail Low Kick Magic Coat Mega Kick Mega\nPunch Mud-Slap Role Play Seismic Toss Signal Beam Sleep Talk Snore\nSwift Water Sport Wonder Room Worry Seed Zen\nHeadbutt" > golduck
+echo -e "Способоности Swarm Venom Insomnia\nFrisk" > spinarak
+cd ..
+cd lab0
+cd nidoranF5
+echo -e "Turns Block Bullet Seed Earth Power Frenzy Plant Giga\nDrain Grass Pledge Earth Power Iron Tail Mud-Slap Natural\nGift Outrage Rock Climb Secret Power Seed Bomb Sleep Talk Snore\nStealh Rock Superpower Synthesis Wood Hammer Worry\nSeed" > torterra
+echo "Живет Freshwater" > quaqsire
+echo -e "wegiht = 158.7 heigt = 24.0\natk = 6 def = 5" > larvitar
+cd ..
+echo "Живет Beach Cave Mountain" > nosepass0
+chmod 573 delcatty3
+cd delcatty3
+chmod 373 swadloon
+chmod 644 chansey
+chmod 333 pansear
+chmod 317 totodile
+chmod 404 surskit
+cd ..
+chmod 440 hydreigon6
+chmod 400 litwick7
+chmod 513 misdreavus9
+cd misdreavus9
+chmod 524 sewaddle
+chmod 753 samurott
+chmod 004 golduck
+chmod 400 spinarak
+chmod 524 tentacruel
+cd ..
+chmod 576 nidoranF5
+cd nidoranF5
+chmod 571 roggenrola
+chmod 361 gurdurr
+chmod 622 torterra
+chmod 373 starly
+chmod 066 quaqsire
+chmod 640 larvitar
+cd ..
+chmod 622 nosepass0
+cd nidoranF5
+chmod 500 gurdurr
+chmod 500 starly
+chmod 500 quaqsire
+cd ..
+cp -r nidoranF5 delcatty3/swadloon
+cd nidoranF5
+chmod 361 gurdurr
+chmod 373 starly
+chmod 066 quaqsire
+cd ..
+chmod 700 hydreigon6
+chmod 700 delcatty3
+ln -P hydreigon6 delcatty3/surskithydreigon
+chmod 440 hydreigon6
+chmod 573 delcatty3
+cd nidoranF5
+chmod 400 quaqsire
+cd ..
+cat nidoranF5/quaqsire nidoranF5/quaqsire > hydreigon6_63
+cd nidoranF5
+chmod 066 quaqsire
+cd ..
+cp nosepass0 nidoranF5/gurdurr
+ln -s misdreavus9 Copy_49
+chmod 700 nidoranF5
+ln -s nosepass0 nidoranF5/larvitarnosepass
+chmod 576 nidoranF5
+chmod 700 delcatty3
+cat litwick7 > delcatty3/chanseylitwick
+chmod 573 delcatty3
+mkdir tmp
+wc -c hydreigon6 > tmp/res4.1 2> /dev/null
+ls -ltrR | find . -name 'l*' | tail -n3
+cat hydreigon6 | grep е$ 2> tmp/err4.3
+cd lab0
+cat $(find . -name 't*') | sort 2> 1
+ls -lR | sort -k2 | grep ro | head -n2 2> /dev/null
+ls -lR | sort -k2 | head -n3 2> tmp/erroe4.6
+cd
+chmod -R 700 lab0
+cd lab0
+rm litwick7
+rm delcatty3/chansey
+rm nidoranF5/larvitarnosepass
+rm delcatty3/surskithydreigon
+rm -r misdreavus9
+rmdir -r delcatty3/pansear

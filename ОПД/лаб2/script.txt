@@ -1,0 +1,24 @@
+java -jar bcomp-ng-ex-Custom.jar
+java -jar -Dmode=cli bcomp-ng.jar
+?
+113 a A121 w
+114 a 0200 w
+115 a 4120 w
+116 a 6124 w
+117 a E122 w
+118 a A121 w
+119 a 3122 w
+11A a E122 w
+11B a 0200 w
+11C a 4113 w
+11D a 4122 w
+11E a E123 w
+11F a 0100 w
+120 a E122 w
+121 a 0200 w
+122 a 4122 w
+123 a 3122 w
+124 a 0200 w
+
+113 a A121 w 0200 w 4120 w 6124 w E122 w A121 w 3122 w E122 w 0200 w 4113 w 4122 w E123 w 0100 w E122 w 0200 w 4122 w 3122 w 0200 w 114 a s
+c c c c c c c c c c
