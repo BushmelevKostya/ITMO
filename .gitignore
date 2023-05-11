@@ -1,0 +1,14 @@
+*.txt
+*.pdf
+*.csv
+*.jar
+*.zip
+*.xlsx
+*.png
+*.jpg
+*.iml
+target
+META_INF
+doc
+artifacts
+.idea
