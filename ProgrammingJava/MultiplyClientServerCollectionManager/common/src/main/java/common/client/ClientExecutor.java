@@ -6,28 +6,33 @@ import common.exception.*;
 import java.io.*;
 import java.net.*;
 import java.util.HashMap;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class ClientExecutor {
 	private final HashMap<String, ClientCommand> commandMap = new ClientCommandMap().getMap();
 	private final ClientValidator validator = new ClientValidator();
-	private final Authorizer authorizer = new Authorizer();
+	private static final Authorizer authorizer = new Authorizer();
 	private static BufferedReader br;
 	private static String login;
 	private static String password;
 	
 	protected static String accessToken;
 	protected static String refreshToken;
+	private DatagramSocket clientSocket;
+	private InetAddress address;
 	
 	public ClientExecutor() {
 	}
 	
+	
 	/**
 	 * this method use when program has been started
 	 */
-	public void run() {
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		     DatagramSocket clientSocket = new DatagramSocket()) {
-			InetAddress address = InetAddress.getByName("localhost");
+	public void run() throws SocketException {
+		this.clientSocket = new DatagramSocket();
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));) {
+			address = InetAddress.getByName("localhost");
 			System.out.println("Авторизуйтесь или зарегистрируйтесь, чтобы получить доступ к API приложения.\nВведите:\nl - log in\nr - register");
 			while (true) {
 				try {
@@ -36,7 +41,7 @@ public class ClientExecutor {
 						case "l", "log in" -> authorizer.authorize();
 						case "r", "register" -> authorizer.register();
 						default -> {
-							execute(clientSocket, address, string);
+							execute(string);
 							System.out.println("\nВведите команду в формате: \"<команда> <ключ>\"");
 						}
 					}
@@ -46,12 +51,12 @@ public class ClientExecutor {
 				} catch (ExitException ignored) {
 				}
 			}
-		} catch (IOException exception){
+		} catch (IOException exception) {
 			System.out.println(exception.getMessage());
 		}
 	}
 	
-	public void execute(DatagramSocket clientSocket, InetAddress address, String string) throws ExitException {
+	public Response perform(String string) throws ExitException{
 		common.client.Reader reader = new Reader(string);
 		String command = reader.getCommand();
 		var value = reader.getValue();
@@ -68,6 +73,7 @@ public class ClientExecutor {
 					String refreshToken = response.getRefreshToken();
 					if (accessToken != null) ClientExecutor.setAccessToken(accessToken);
 					if (refreshToken != null) ClientExecutor.setRefreshToken(refreshToken);
+					return perform(string);
 				} else {
 					commandMap.get(command).execute(value);
 				}
@@ -75,7 +81,20 @@ public class ClientExecutor {
 		} catch (EOFException exception) {
 			System.out.println("Сервер недоступен, проверьте соединение!");
 		} catch (IOException | ClassNotFoundException | FalseTypeException | FalseValuesException |
-		         NumberFormatException | UniqueException | NullStringException | InfiniteException | NullPointerException exception) {
+		         NumberFormatException | UniqueException | NullStringException | InfiniteException |
+		         NullPointerException exception) {
+			System.out.println(exception.getMessage());
+		}
+		return null;
+	}
+	
+	public static void execute(String string) throws ExitException {
+		try {
+			switch (string) {
+				case "login" -> authorizer.authorize();
+				case "register" -> authorizer.register();
+			}
+		} catch (IOException exception) {
 			System.out.println(exception.getMessage());
 		}
 	}
@@ -97,8 +116,8 @@ public class ClientExecutor {
 					System.out.println("Некорректные данные в файле " + fileName + " : " + exception.getMessage());
 					break;
 				} catch (ClassNotFoundException | FalseValuesException | NullPointerException |
-				         IllegalArgumentException | FalseTypeException |
-				         InfiniteException | UniqueException | NullStringException exception) {
+				         IllegalArgumentException | FalseTypeException | InfiniteException | UniqueException |
+				         NullStringException exception) {
 					System.out.println(exception.getMessage());
 					break;
 				} catch (ExitException exception) {
@@ -111,11 +130,8 @@ public class ClientExecutor {
 	}
 	
 	public void executeScript(String string) throws ExitException, IOException, ClassNotFoundException, NullPointerException, FalseValuesException, IllegalArgumentException, FalseTypeException, InfiniteException, UniqueException, NullStringException {
-		try (DatagramSocket clientSocket = new DatagramSocket()) {
-			InetAddress address = InetAddress.getByName("localhost");
-			String newString = string.replace("insert", "insertScript");
-			execute(clientSocket, address, newString);
-		}
+		String newString = string.replace("insert", "insertScript");
+		execute(newString);
 	}
 	
 	public static BufferedReader getBr() {
@@ -156,5 +172,24 @@ public class ClientExecutor {
 	
 	public static void setRefreshToken(String refreshToken) {
 		ClientExecutor.refreshToken = refreshToken;
+	}
+	
+	
+	public static class Manager<Product> {
+		TreeMap<Integer, Product> collection;
+		
+		public Manager(TreeMap<Integer, Product> collection, Scanner scanner) {
+		}
+
+		public void register() throws ExitException {
+			execute("register");
+		}
+		public void login() throws ExitException {
+			execute("login");
+		}
+		
+		public TreeMap<Integer, Product> getDataCollection() {
+			return collection;
+		}
 	}
 }

@@ -1,0 +1,125 @@
+@font-face {
+    font-family: distroy;
+    src: url("../fonts/distroy.23.ttf");
+}
+
+body {
+    font-family: distroy, sans-serif;
+    font-size: large;
+    color: yellow;
+    background-image: url("../img/backgroung.png");
+}
+
+li {
+    list-style-type: square;
+    font-weight: bold;
+}
+
+.li-tasks1 {
+    color: red;
+}
+
+.li-tasks2 {
+    color: orange;
+}
+
+.li-tasks3 {
+    color: yellow;
+}
+
+.li-tasks4 {
+    color: green;
+}
+
+.li-tasks5 {
+    color: aqua;
+}
+
+.li-tasks6 {
+    color: blue;
+}
+
+.li-tasks7 {
+    color: blueviolet;
+}
+
+h1 + p {
+    font-size: 150%;
+}
+
+.main-table {
+    border: 0;
+    width: 100%;
+}
+
+.img-areas {
+    text-align: center;
+    opacity: 0.65;
+}
+
+.header {
+    text-align: center;
+}
+
+.gradient-white {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(135deg, yellow, aqua);
+}
+
+.gradient-blue {
+    color: transparent;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(190deg, rebeccapurple, yellow);
+}
+
+.radio-button-block {
+    text-align: right;
+    padding-bottom: 10px;
+}
+
+.radio-button {
+    cursor: pointer;
+}
+
+.radio-button-block label {
+    cursor: pointer;
+    padding-left: 25px;
+    user-select: none;
+}
+
+.input-button-block {
+    width: 40px;
+}
+
+.input-text {
+    opacity: 0.8;
+}
+
+.text-label {
+    text-align: center;
+}
+
+.input-button {
+    cursor: pointer;
+}
+
+.submit-button {
+    background-image:         linear-gradient(to bottom, #a3d4ff, #88bcf2);
+    border-radius:3px;
+    line-height: 22px;
+    padding:7px 12px;
+    margin:0;
+    border: 1px solid #88bcf2;
+    color: yellow;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-shadow: 0 1px 1px #70A7E0;
+    cursor:pointer;
+}
+
+.main-form {
+    text-align: center;
+}
