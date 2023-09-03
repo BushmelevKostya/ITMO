@@ -9,7 +9,7 @@
 
 <body>
 
-<form action="response.php" method="get" class="main-form">
+<form method="GET" class="main-form" action="/ajax.php">
     <table border="1" class="main-table">
         <tr>
             <td colspan="4">
@@ -107,10 +107,37 @@
             </td>
         </tr>
     </table>
-    <script>
+    <div class="message"></div>
+
+
+    
+    <script type="javascript">
         function send(press_value) {
             this.form['press_button'].value = press_value;
         }
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: "GET",
+                cache: false,
+                data: $(this).serialize(),
+                success: function (data) {
+                    $('.message').html(data);
+                },
+                error: function (data) { // Данные не отправлены
+                    $('.message').html('')
+                        .append('<ul class="alert-data error"><li>Произошла ошибка. Не найден URL - ' + $(self).attr('action') + '! Обратитесь в службу поддержки!</li></ul>')
+                        .append('<ul class="alert-data error"><li>Данные из формы: ' + $(self).serialize() + '</li></ul>');
+                }
+            });
+        })
     </script>
 </form>
 
