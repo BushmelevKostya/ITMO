@@ -76,7 +76,23 @@ h1 + p {
 
 .radio-button-block {
     text-align: right;
-    padding-bottom: 10px;
+    width: 15%;
+}
+
+.input-text-block {
+    width: 20%;
+}
+
+.input-button-block {
+    width: 10%;
+}
+
+.submit-button-block {
+    width: 15%;
+}
+
+.side-panel {
+    width: 20%;
 }
 
 .radio-button {
@@ -87,10 +103,6 @@ h1 + p {
     cursor: pointer;
     padding-left: 25px;
     user-select: none;
-}
-
-.input-button-block {
-    width: 40px;
 }
 
 .input-text {
@@ -106,7 +118,7 @@ h1 + p {
 }
 
 .submit-button {
-    background-image:         linear-gradient(to bottom, #a3d4ff, #88bcf2);
+    background-image: linear-gradient(to bottom, #a3d4ff, #88bcf2);
     border-radius:3px;
     line-height: 22px;
     padding:7px 12px;
