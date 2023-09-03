@@ -1,4 +1,3 @@
-<!--вариант 2801-->
 <?php
 
 class Coordinator

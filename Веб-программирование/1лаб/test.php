@@ -1,6 +1,6 @@
 <?php
-$text = $_POST["text"];
-$radio = $_POST["radio"];
+$text = (float)$_POST["text"];
+$radio = (float)$_POST["radio"];
 $press_button = (float)$_POST["press_button"];
 
 

@@ -5,34 +5,57 @@ require_once("database/Connector.php");
 require_once("database/Migrations.php");
 require_once("database/Query.php");
 
-$x = $_GET["radio"];
-$y = $_GET["text"];
-$R = (float)$_GET['press_button'];
-$dateTime = date(DATE_ATOM);
-$startTime = microtime(true);
+$x = $_POST["x"];
+$y = $_POST["y"];
+$R = $_POST["R"];
 
-$validator = new Validator();
-$string = $validator->check($x, $y, $R);
-echo $string;
+$runner = new Runner($x, $y, $R);
+$runner->run();
 
-$objCoordinator = new Coordinator($x, $y, $R);
-$res = $objCoordinator->getAnswer();
+class Runner {
+    private float $x;
+    private float $y;
+    private float $R;
 
-$connector = new Connector();
-$connection = $connector->connect();
+    /**
+     * @param float $x
+     * @param float $y
+     * @param float $R
+     */
+    public function __construct(float $x, float $y, float $R)
+    {
+        $this->x = $x;
+        $this->y = $y;
+        $this->R = $R;
+    }
 
-$workTime = microtime(true) - $startTime;
+    public function run() {
+        $dateTime = date(DATE_ATOM);
+        $startTime = microtime(true);
 
-$migrations = new Migrations($connection);
+        $validator = new Validator();
+        $string = $validator->check($this->x, $this->y, $this->R);
+        echo $string;
+
+        $objCoordinator = new Coordinator($this->x, $this->y, $this->R);
+        $res = $objCoordinator->getAnswer();
+
+        $connector = new Connector();
+        $connection = $connector->connect();
+
+        $workTime = microtime(true) - $startTime;
+
+        $migrations = new Migrations($connection);
 //$migrations->createTable();
-$query = new Query($x, $y, $R, $res, $startTime, $workTime);
-$migrations->addQuery($query);
+        $query = new Query($this->x, $this->y, $this->R, $res, $startTime, $workTime);
+        $migrations->addQuery($query);
 
-$tablePrinter = new TablePrinter($migrations);
-$tablePrinter->run();
-?>
+        $tablePrinter = new TablePrinter($migrations);
+        $tablePrinter->run();
+    }
 
-<?php
+
+}
 
 class TablePrinter
 {
@@ -50,7 +73,7 @@ class TablePrinter
     {
         $response = $this->migrations->getAllInfo();
         ?>
-        <table border="1">
+        <table border="1" class="data-table">
             <caption>Таблица результатов запроса</caption>
             <tr>
                 <th>id</th>
