@@ -178,8 +178,32 @@ h1 + p {
 }
 
 .radio-button {
+    /*cursor: pointer;*/
+    display: none;
+}
+
+.custom-radio {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
     cursor: pointer;
-    /*appearance: none;*/
+    background-image: url("../img/radio-1.png");
+    background-size: cover;
+}
+
+.custom-radio:hover {
+    background-color: #0000bb;
+}
+
+.custom-radio:active {
+    outline: 2px dotted black;
+    box-shadow: 0 0 0 1px gold;
+}
+
+.radio-button:checked + .custom-radio {
+    background-image: url("../img/radio-2.png");
+    background-size: cover;
 }
 
 .radio-button-block label {
@@ -190,6 +214,24 @@ h1 + p {
 
 .input-text {
     opacity: 0.8;
+    border: 3px solid #0f0;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+    background-color: #1ccfc9;
+    font-family: distroy, sans-serif;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
+.input-text:hover {
+    background-color: #088b85;
+}
+
+.input-text:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 4px gold;
 }
 
 .text-label {
@@ -233,10 +275,46 @@ h1 + p {
     cursor:pointer;
 }
 
+.submit-button:hover {
+    background-image: linear-gradient(to bottom, #6090bb, #4478b0);
+}
+
+.submit-button:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 3px gold;
+}
+
+.submit-button:active {
+    background-image: linear-gradient(to bottom, #000, #333);
+    border-color: #fff;
+    color: #eee;
+}
+
 .main-form {
     text-align: center;
 }
 
 .data-table {
     width: 100%;
+}
+
+.header-x {
+    text-align: right;
+    padding-right: 6px;
+}
+
+.data-header {
+    color: #aa9990;
+}
+
+.green-response {
+    color: green;
+}
+
+.red-response {
+    color: red;
+}
+
+.id-color {
+    color: #ddd;
 }

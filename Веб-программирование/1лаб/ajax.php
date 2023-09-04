@@ -74,15 +74,15 @@ class TablePrinter
         $response = $this->migrations->getAllInfo();
         ?>
         <table border="1" class="data-table">
-            <caption>Таблица результатов запроса</caption>
+            <caption class="gradient-blue">Таблица результатов запроса</caption>
             <tr>
-                <th>id</th>
-                <th>x</th>
-                <th>y</th>
-                <th>R</th>
-                <th>Попадание</th>
-                <th>Время запроса</th>
-                <th>Время обработки запроса(мкс)</th>
+                <th class="data-header">id</th>
+                <th class="data-header">x</th>
+                <th class="data-header">y</th>
+                <th class="data-header">R</th>
+                <th class="data-header">Попадание</th>
+                <th class="data-header">Время запроса</th>
+                <th class="data-header">Время обработки запроса(мкс)</th>
             </tr>
             <?php
             $i = 0;
@@ -90,11 +90,19 @@ class TablePrinter
                 $row = pg_fetch_row($response);
                 ?>
                 <tr>
-                    <td><?php echo $row[0] ?></td>
+                    <td class="id-color"><?php echo $row[0] ?></td>
                     <td><?php echo $row[1] ?></td>
                     <td><?php echo $row[2] ?></td>
                     <td><?php echo $row[3] ?></td>
-                    <td><?php echo $row[4] ?></td>
+
+                    <?php
+                    if ($row[4] == "Нет") {
+                        ?><td class="red-response"><?php echo $row[4] ?></td>
+                    <?php } else {
+                        ?><td class="green-response"><?php echo $row[4] ?></td>
+                    <?php }
+                    ?>
+
                     <td><?php echo $row[5] ?></td>
                     <td><?php echo round($row[6], 4) ?></td>
                 </tr>
