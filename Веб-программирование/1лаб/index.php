@@ -10,7 +10,7 @@
 <body>
 
 <form method="POST" class="main-form" action="test.php">
-    <table border="1" class="main-table">
+    <table class="main-table">
         <tr>
             <td rowspan="14" class="side-panel"></td>
             <td colspan="4">

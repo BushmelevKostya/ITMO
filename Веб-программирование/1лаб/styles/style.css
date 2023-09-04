@@ -179,6 +179,7 @@ h1 + p {
 
 .radio-button {
     cursor: pointer;
+    /*appearance: none;*/
 }
 
 .radio-button-block label {
@@ -199,6 +200,22 @@ h1 + p {
     cursor: pointer;
     font-family: distroy, sans-serif;
     font-size: large;
+    background-color: #1ccfc9;
+}
+
+.input-button:hover {
+    background-color: #088b85;
+}
+
+.input-button:focus {
+    outline:  2px dotted black;
+    box-shadow: 0 0 0 1px gold;
+}
+
+.input-button:active {
+    background-color: #333;
+    border-color: #fff;
+    color: #eee;
 }
 
 .submit-button {
