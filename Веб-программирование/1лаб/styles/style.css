@@ -130,6 +130,10 @@ h1 + p {
 
 .header {
     text-align: center;
+    font-family: distroy, sans-serif;
+    font-size: large;
+    color: yellow;
+    font-style: italic;
 }
 
 .gradient-white {

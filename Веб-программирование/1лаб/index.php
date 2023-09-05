@@ -26,7 +26,6 @@
             <th>R</th>
             <td rowspan="10" class="submit-button-block"><input type="submit" class="submit-button"></td>
         </tr>
-
         <tr>
             <td class="radio-button-block">
                 <label for="radio1">-2
@@ -205,6 +204,23 @@
         }
     </script>
 
+    <script>
+        const input = document.getElementById('text');
+        input.addEventListener('keyup', function (){
+            const curVal = this.value;
+            const regex = /^-?([0-9]+\.?[0-9]*)?$/;
+            if (!regex.test(curVal)) {
+                const result = curVal.match(/^-?[0-9.]/g, "");
+                if (result !== null) {
+                    this.value = result[0];
+                } else {
+                    this.value = "";
+                }
+            } else if(this.value > 3 || this.value <= -5) {
+                this.value = "";
+            }
+        });
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>

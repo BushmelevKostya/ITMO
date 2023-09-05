@@ -6,8 +6,11 @@ class Validator {
             $this->checkExist($R)) {
             if ($this->checkType($x) &&
                 $this->checkType($y) && $this->checkType($R)) {
-                if ($this->checkPositive($R)) {
-                    return "";
+                if ($this->checkInterval($y)) {
+                    if ($this->checkPositive($R)) {
+                        return "";
+                    }
+                    else return "y должен быть в промежутке [-5, ..., 3]";
                 }
                 else return "Радиус должен быть положительным";
             }
@@ -23,5 +26,8 @@ class Validator {
     }
     public function checkPositive(float $x) : bool {
         return ($x > 0);
+    }
+    public function checkInterval(float $y) : bool {
+        return (-5 <= $y) && ($y <= 3);
     }
 }
