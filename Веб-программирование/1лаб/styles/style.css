@@ -55,7 +55,7 @@ h4 {
 p {
     font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
     font-size: 15px;
-    padding: 7px 20px;
+    padding: 7px 40px;
     margin-bottom: 10px;
     letter-spacing: 1px;
     text-align: left;
@@ -68,6 +68,10 @@ p::first-letter {
     color: transparent;
     -webkit-background-clip: text;
     background-image: linear-gradient(45deg, red, white);
+}
+
+ul {
+    padding: 40px;
 }
 
 li {
@@ -157,6 +161,7 @@ h1 + p {
     opacity: 0.65;
     float: left;
     margin-right: 10px;
+    padding-left: 40px;
 }
 
 .header {
@@ -252,7 +257,7 @@ h1 + p {
     border: 3px solid #0f0;
     border-radius: 5px;
     height: 40px;
-    width: 40px;
+    width: 100px;
     background-color: #1ccfc9;
     font-family: distroy, sans-serif;
     font-size: 30px;

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta content="text/html" http-equiv="Content-Type">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Bomb project</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -197,57 +197,12 @@
         </tr>
     </table>
 
+    <script src="script/send-form.js"></script>
 
-    <script>
-        function send(press_value) {
-            this.form['press_button'].value = press_value;
-        }
-    </script>
-
-    <script>
-        const input = document.getElementById('text');
-        input.addEventListener('keyup', function (){
-            const curVal = this.value;
-            const regex = /^-?([0-9]+\.?[0-9]*)?$/;
-            if (!regex.test(curVal)) {
-                const result = curVal.match(/^-?[0-9.]/g, "");
-                if (result !== null) {
-                    this.value = result[0];
-                } else {
-                    this.value = "";
-                }
-            } else if(this.value > 3 || this.value <= -5) {
-                this.value = "";
-            }
-        });
-    </script>
+    <script src="script/validate-form.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $('form').on('submit', function (e) {
-            e.preventDefault();
-            $.ajax({
-                url: $(this).attr('action'),
-                type: "GET",
-                cache: false,
-                data: $(this).serialize(),
-                success: function (data) {
-                    var response = JSON.parse(data);
-                    var x = response.radio;
-                    var y = response.text;
-                    var R = response.press_button;
-                    $.ajax({
-                        type: "GET",
-                        url: "ajax.php",
-                        data: {x: x, y: y, R: R},
-                        success: function (response) {
-                            $('.data-table').html(response);
-                        }
-                    })
-                }
-            });
-        })
-    </script>
+    <script src="script/send-ajax-request.js"></script>
 </form>
 
 </body>
