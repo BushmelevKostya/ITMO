@@ -1,7 +1,7 @@
 <?php
-$text = (float)$_POST["text"];
-$radio = (float)$_POST["radio"];
-$press_button = (float)$_POST["press_button"];
+$text = (float)$_GET["text"];
+$radio = (float)$_GET["radio"];
+$press_button = (float)$_GET["press_button"];
 
 
 $response = array(

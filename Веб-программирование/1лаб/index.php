@@ -9,7 +9,7 @@
 
 <body>
 
-<form method="POST" class="main-form" action="test.php">
+<form method="GET" class="main-form" action="test.php">
     <table class="main-table">
         <tr>
             <td rowspan="14" class="side-panel"></td>
@@ -228,7 +228,7 @@
             e.preventDefault();
             $.ajax({
                 url: $(this).attr('action'),
-                type: "POST",
+                type: "GET",
                 cache: false,
                 data: $(this).serialize(),
                 success: function (data) {
@@ -237,7 +237,7 @@
                     var y = response.text;
                     var R = response.press_button;
                     $.ajax({
-                        type: "POST",
+                        type: "GET",
                         url: "ajax.php",
                         data: {x: x, y: y, R: R},
                         success: function (response) {

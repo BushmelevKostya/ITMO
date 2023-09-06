@@ -3,6 +3,12 @@
     src: url("../fonts/distroy.23.ttf");
 }
 
+@font-face {
+    font-family: rurintania;
+    src: url("../fonts/rurintania.ttf");
+}
+
+/*Наследование*/
 body {
     font-family: distroy, sans-serif;
     font-size: large;
@@ -29,6 +35,23 @@ body {
 .border li:nth-child(4):hover {}
 .border li:nth-child(5):hover {}
 
+/*Каскадирование*/
+h4 {
+    color: red;
+}
+
+.header {
+    color: red;
+}
+
+.header {
+    text-align: center;
+    font-family: distroy, sans-serif;
+    font-size: large;
+    color: yellow;
+    font-style: italic;
+}
+
 p {
     font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
     font-size: 15px;
@@ -37,6 +60,14 @@ p {
     letter-spacing: 1px;
     text-align: left;
     text-indent: 30px;
+}
+/*Псевдоэлемент*/
+p::first-letter {
+    font-family: rurintania, sans-serif;
+    font-size: 40px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(45deg, red, white);
 }
 
 li {
@@ -164,7 +195,7 @@ h1 + p {
     text-align: right;
     width: 15%;
 }
-
+/*Отступы элементов ввода в процентах*/
 .input-text-block {
     width: 20%;
 }
@@ -195,7 +226,7 @@ h1 + p {
     background-image: url("../img/radio-1.png");
     background-size: cover;
 }
-
+/*Псевдоклассы*/
 .custom-radio:hover {
     background-color: #0000bb;
 }
@@ -209,7 +240,7 @@ h1 + p {
     background-image: url("../img/radio-2.png");
     background-size: cover;
 }
-
+/*Селектор потомков*/
 .radio-button-block label {
     cursor: pointer;
     padding-left: 25px;

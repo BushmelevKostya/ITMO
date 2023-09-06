@@ -5,9 +5,9 @@ require_once("database/Connector.php");
 require_once("database/Migrations.php");
 require_once("database/Query.php");
 
-$x = $_POST["x"];
-$y = $_POST["y"];
-$R = $_POST["R"];
+$x = $_GET["x"];
+$y = $_GET["y"];
+$R = $_GET["R"];
 
 $runner = new Runner($x, $y, $R);
 $runner->run();
