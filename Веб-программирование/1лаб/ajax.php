@@ -5,17 +5,10 @@ require_once("database/Connector.php");
 require_once("database/Migrations.php");
 require_once("database/Query.php");
 
-//$x = $_GET["x"];
-//$y = $_GET["y"];
-//$R = $_GET["R"];
-
-$x = (float)$_GET["text"];
-$y = (float)$_GET["radio"];
+$y = (float)$_GET["text"];
+$x = (float)$_GET["radio"];
 $R = (float)$_GET["press_button"];
 
-?>
-
-<?php
 $runner = new Runner($x, $y, $R);
 $runner->run();
 
@@ -61,5 +54,3 @@ class Runner
         echo json_encode($response);
     }
 }
-
-?>
