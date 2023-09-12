@@ -253,6 +253,7 @@ h1 + p {
 }
 
 .input-text {
+    margin-left: 100px;
     opacity: 0.8;
     border: 3px solid #0f0;
     border-radius: 5px;
@@ -357,4 +358,12 @@ h1 + p {
 
 .id-color {
     color: #ddd;
+}
+
+h2 {
+    text-align: center;
+}
+
+.R {
+    text-align: left;
 }
