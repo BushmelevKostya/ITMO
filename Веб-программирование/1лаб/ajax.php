@@ -217,7 +217,6 @@ $workTime = microtime(true) - $startTime;
             console.log(object);
         }
     }
-
     let tablePrinter = new TablePrinter();
     tablePrinter.run();
 </script>
