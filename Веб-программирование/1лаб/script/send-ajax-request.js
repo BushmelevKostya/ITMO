@@ -6,8 +6,8 @@ $("#submit-button").click(function (e) {
         url: "ajax.php",
         data: form.serialize(),
         success: function (response) {
+            console.log(response);
             var json = JSON.parse(response);
-            alert(json);
             let tablePrinter = new TablePrinter();
             tablePrinter.run(json.x, json.y, json.R, json.res, json.workTime);
             form[0].reset();

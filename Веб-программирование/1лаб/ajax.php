@@ -36,7 +36,6 @@ class Runner
 
         $validator = new Validator();
         $string = $validator->check($this->x, $this->y, $this->R);
-        echo $string;
 
         $objCoordinator = new Coordinator($this->x, $this->y, $this->R);
         $res = $objCoordinator->getAnswer();
