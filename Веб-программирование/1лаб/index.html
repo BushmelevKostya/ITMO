@@ -317,7 +317,8 @@
 
       let size = object.length;
 
-      var tbody = document.getElementById("data-table");
+      var tbody = document.getElementById("data-body");
+      tbody.innerHTML = "";
 
       for (let i = 0; i < size; i++) {
         var row = tbody.insertRow(-1);
