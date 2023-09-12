@@ -16,6 +16,7 @@ $('form').on('submit', function (e) {
                 data: {x: x, y: y, R: R},
                 success: function (response) {
                     $('.data-table').html(response);
+                    x
                 }
             })
         }

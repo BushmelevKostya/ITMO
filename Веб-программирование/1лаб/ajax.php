@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Передача переменных из PHP в JavaScript</title>
+</head>
+<body>
+
 <?php
 require_once("response/Coordinator.php");
 require_once("response/Validator.php");
@@ -9,10 +16,21 @@ $x = $_GET["x"];
 $y = $_GET["y"];
 $R = $_GET["R"];
 
+?>
+
+<script>
+    var x = <?php echo $x; ?>;
+    var y = <?php echo $y; ?>;
+    var R = <?php echo $R; ?>;
+</script>
+
+
+<?php
 $runner = new Runner($x, $y, $R);
 $runner->run();
 
-class Runner {
+class Runner
+{
     private float $x;
     private float $y;
     private float $R;
@@ -29,8 +47,8 @@ class Runner {
         $this->R = $R;
     }
 
-    public function run() {
-        $dateTime = date(DATE_ATOM);
+    public function run()
+    {
         $startTime = microtime(true);
 
         $validator = new Validator();
@@ -40,40 +58,11 @@ class Runner {
         $objCoordinator = new Coordinator($this->x, $this->y, $this->R);
         $res = $objCoordinator->getAnswer();
 
-        $connector = new Connector();
-        $connection = $connector->connect();
-
         $workTime = microtime(true) - $startTime;
 
-        $migrations = new Migrations($connection);
-//$migrations->createTable();
-        $query = new Query($this->x, $this->y, $this->R, $res, $startTime, $workTime);
-        $migrations->addQuery($query);
-
-        $tablePrinter = new TablePrinter($migrations);
-        $tablePrinter->run();
-    }
-
-
-}
-
-class TablePrinter
-{
-    private Migrations $migrations;
-
-    /**
-     * @param Migrations $migrations
-     */
-    public function __construct(Migrations $migrations)
-    {
-        $this->migrations = $migrations;
-    }
-
-    public function run(): void
-    {
-        $response = $this->migrations->getAllInfo();
         ?>
-        <table border="1" class="data-table">
+
+        <table border="1" class="data-table" id="data-table">
             <caption class="gradient-blue">Таблица результатов запроса</caption>
             <tr>
                 <th class="data-header">id</th>
@@ -84,35 +73,163 @@ class TablePrinter
                 <th class="data-header">Время запроса</th>
                 <th class="data-header">Время обработки запроса(мкс)</th>
             </tr>
-            <?php
-            $i = 0;
-            while (pg_result_seek($response, $i)) {
-                $row = pg_fetch_row($response);
-                ?>
-                <tr>
-                    <td class="id-color"><?php echo $row[0] ?></td>
-                    <td><?php echo $row[1] ?></td>
-                    <td><?php echo $row[2] ?></td>
-                    <td><?php echo $row[3] ?></td>
+            <tbody id="data-body">
 
-                    <?php
-                    if ($row[4] == "Нет") {
-                        ?><td class="red-response"><?php echo $row[4] ?></td>
-                    <?php } else {
-                        ?><td class="green-response"><?php echo $row[4] ?></td>
-                    <?php }
-                    ?>
-
-                    <td><?php echo $row[5] ?></td>
-                    <td><?php echo round($row[6], 4) ?></td>
-                </tr>
-                <?php
-                $i++;
-            }
-            ?>
+            </tbody>
+            <!--            <tr>-->
+            <!--                <td class="id-color" id ="x">get</td>-->
+            <!--                <td id="y"></td>-->
+            <!--                <td id="R"></td>-->
+            <!--                <td class="red-response" id = "red-res"></td>-->
+            <!--                <td class="green-response" id="green-res"></td>-->
+            <!--                <td id="start_time"></td>-->
+            <!--                <td id="end_time"></td>-->
+            <!--            </tr>-->
         </table>
+
+        <script>
+            class Query {
+                constructor(id, x, y, R, result, workTime) {
+                    this._id = id;
+                    this._x = x;
+                    this._y = y;
+                    this._R = R;
+                    this._result = result;
+                    this._workTime = workTime;
+                }
+
+                get id() {
+                    return this._id;
+                }
+
+                set id(value) {
+                    this._id = value;
+                }
+
+                get x() {
+                    return this._x;
+                }
+
+                set x(value) {
+                    this._x = value;
+                }
+
+                get y() {
+                    return this._y;
+                }
+
+                set y(value) {
+                    this._y = value;
+                }
+
+                get R() {
+                    return this._R;
+                }
+
+                set R(value) {
+                    this._R = value;
+                }
+
+                get result() {
+                    return this._result;
+                }
+
+                set result(value) {
+                    this._result = value;
+                }
+
+                get workTime() {
+                    return this._workTime;
+                }
+
+                set workTime(value) {
+                    this._workTime = value;
+                }
+            }
+
+            class TablePrinter {
+                constructor() {
+                }
+
+                run() {
+                    var array;
+                    try {
+                        var stringArray = localStorage.getItem("array");
+                        array = JSON.parse(stringArray);
+                    } catch
+                        (error) {
+                    } finally {
+                        array = array || [];
+                        let res = <?php echo $res; ?>;
+                        let workTime = <?php echo $workTime; ?>;
+                        let id = array.length || 0;
+                        id += 1;
+
+                        let query = new Query(id, x, y, R, res, workTime);
+
+                        array.push(query);
+                        stringArray = JSON.stringify(array);
+                        localStorage.setItem("array", stringArray);
+                    }
+
+                    let stringObject = localStorage.getItem("array");
+                    var object = JSON.parse(stringObject);
+
+                    let size = object.length;
+
+                    var tbody = document.getElementById("data-table");
+
+                    for (let i = 0; i < size; i++) {
+                        var row = tbody.insertRow(-1);
+
+                        var cell = row.insertCell(0);
+                        let data = object[i]._id;
+                        let newData = document.createTextNode(data);
+                        cell.classList.add('id-color');
+                        cell.appendChild(newData);
+                        cell = row.insertCell(1);
+                        data = object[i]._x;
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                        cell = row.insertCell(2);
+                        data = object[i]._y;
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                        cell = row.insertCell(3);
+                        data = object[i]._R;
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                        cell = row.insertCell(4);
+                        data = object[i]._result;
+                        if (data) {
+                            data = "Да";
+                            cell.classList.add('green-response');
+                        } else {
+                            data = "Нет";
+                            cell.classList.add('red-response');
+                        }
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                        cell = row.insertCell(5);
+                        data = new Date().toLocaleString();
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                        cell = row.insertCell(6);
+                        data = object[i]._workTime.toFixed(6);
+                        newData = document.createTextNode(data);
+                        cell.appendChild(newData);
+                    }
+                    console.log(object);
+                }
+            }
+
+            let tablePrinter = new TablePrinter();
+            tablePrinter.run();
+        </script>
         <?php
     }
 }
 
 ?>
+</body>
+</html>

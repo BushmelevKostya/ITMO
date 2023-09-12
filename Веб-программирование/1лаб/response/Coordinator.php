@@ -94,11 +94,11 @@ class Coordinator
         $this->R = $R;
     }
 
-    public function getAnswer(): string
+    public function getAnswer(): int
     {
         $result = $this->run();
         if ($result) {
-            return "Да";
-        } else return "Нет";
+            return 1;
+        } else return 0;
     }
 }

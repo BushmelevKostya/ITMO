@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Bomb project</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="ico/favicon.ico">
 </head>
 
 <body>
