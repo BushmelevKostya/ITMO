@@ -228,12 +228,13 @@
 
 <script>
   class Query {
-    constructor(id, x, y, R, result, workTime) {
+    constructor(id, x, y, R, result, startTime, workTime) {
       this._id = id;
       this._x = x;
       this._y = y;
       this._R = R;
       this._result = result;
+      this._startTime = startTime;
       this._workTime = workTime;
     }
 
@@ -243,6 +244,14 @@
 
     set id(value) {
       this._id = value;
+    }
+
+    get startTime() {
+      return this._startTime;
+    }
+
+    set startTime(value) {
+      this._startTime = value;
     }
 
     get x() {
@@ -292,6 +301,7 @@
 
     run(x, y, R, res, workTime) {
       var array;
+      localStorage.clear();
       try {
         var stringArray = localStorage.getItem("array");
         array = JSON.parse(stringArray);
@@ -304,8 +314,8 @@
         // let workTime = <?php echo $workTime; ?>;
         let id = array.length || 0;
         id += 1;
-
-        let query = new Query(id, x, y, R, res, workTime);
+        let startTime = new Date().toLocaleString();
+        let query = new Query(id, x, y, R, res, startTime, workTime);
 
         array.push(query);
         stringArray = JSON.stringify(array);
@@ -352,7 +362,8 @@
         newData = document.createTextNode(data);
         cell.appendChild(newData);
         cell = row.insertCell(5);
-        data = new Date().toLocaleString();
+        // data = new Date().toLocaleString();
+        data = object[i]._startTime;
         newData = document.createTextNode(data);
         cell.appendChild(newData);
         cell = row.insertCell(6);
