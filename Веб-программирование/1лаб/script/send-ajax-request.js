@@ -6,11 +6,16 @@ $("#submit-button").click(function (e) {
         url: "ajax.php",
         data: form.serialize(),
         success: function (response) {
-            console.log(response);
             var json = JSON.parse(response);
-            let tablePrinter = new TablePrinter();
-            tablePrinter.run(json.x, json.y, json.R, json.res, json.workTime);
-            form[0].reset();
+            if (json.error !== "") {
+                console.log(json.error);
+                form[0].reset();
+            }
+            else {
+                let tablePrinter = new TablePrinter();
+                tablePrinter.run(json.x, json.y, json.R, json.res, json.workTime);
+                form[0].reset();
+            }
         }
     });
 })

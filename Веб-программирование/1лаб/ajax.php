@@ -37,6 +37,14 @@ class Runner
         $validator = new Validator();
         $string = $validator->check($this->x, $this->y, $this->R);
 
+        if ($string != "") {
+            $response = array(
+                "error" => $string
+            );
+            echo json_encode($response);
+            exit(401);
+        }
+
         $objCoordinator = new Coordinator($this->x, $this->y, $this->R);
         $res = $objCoordinator->getAnswer();
 
@@ -47,7 +55,8 @@ class Runner
             "y" => $this->y,
             "R" => $this->R,
             "res" => $res,
-            "workTime" => $workTime
+            "workTime" => $workTime,
+            "error" => ""
         );
 
         echo json_encode($response);

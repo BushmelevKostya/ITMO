@@ -221,7 +221,7 @@
 
 <script src="script/send-form.js"></script>
 
-<script src="script/validate-form.js"></script>
+<!--<script src="script/validate-form.js"></script>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script/send-ajax-request.js"></script>
@@ -301,7 +301,6 @@
 
     run(x, y, R, res, workTime) {
       var array;
-      localStorage.clear();
       try {
         var stringArray = localStorage.getItem("array");
         array = JSON.parse(stringArray);
@@ -371,7 +370,6 @@
         newData = document.createTextNode(data);
         cell.appendChild(newData);
       }
-      console.log(object);
     }
   }
 

@@ -9,10 +9,9 @@ class Validator {
                 if ($this->checkInterval($y)) {
                     if ($this->checkPositive($R)) {
                         return "";
-                    }
-                    else return "y должен быть в промежутке [-5, ..., 3]";
+                    } else return "Радиус должен быть положительным";
                 }
-                else return "Радиус должен быть положительным";
+                else return "y должен быть в промежутке [-5, ..., 3]";
             }
             else return "Данные должны быть типа float";
         }
